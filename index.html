@@ -4,174 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🚀 Parcial</title>
+    <title> Parcial</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      #chart {
+        overflow-y: auto;
+      }
+      #chart svg {
+        max-width: initial;
+      }
+    </style>
   </head>
+  <body>    
+    <div id="chart"></div>
 
-  <body>
-
-    <div id="dots" class="hidden">
-    </div>
-
-    <!-- <div id="corner_btn">
-        <input type="checkbox" id="checkbox" onclick="toggleFullScreen()"/>
-    </div> -->
-
-    <main>
-      <!-- Title -->
-      <h1 id="title"></h1>
-
-      <!-- Start Button -->
-      <div id="intro" class="hidden">
-        <button id="start_btn" onclick="start()">🚀 Explorar</button>
-      </div>
-
-      <!-- Playground: Plot visualization -->
-      <div id="playground" class="hidden">
-
-        <!-- Orthographic projection of World Map, rotates per country -->
-        <div id="worldTour" class="chart">
-            <div id="worldTour_text">
-                <div class="info_text" id="nombre"></div>
-                <div class="info_text" id="nacionalidad"></div>
-                <div class="info_text" id="anio_mision"></div>
-                <div class="info_text" id="horas"></div>
-                <div class="description_text" id="information">
-                    <p>
-                        En este mapa podemos visualizar los países que han enviado astronautas al espacio,
-                        junto con los nombres de los astronautas, las horas de misión y el año de cada una de
-                        las expediciones.
-                    </p>
-                </div>
-                <div class="info_text" id="dataset_link">
-                    <span>🔗</span> <a id="astronautas_gh" href="https://github.com/visualizacion-de-datos-utdt/vd_astronautas/tree/20763419f7b0d62c6bae8fb17d92cbb8e3c79674" target="_blank">Dataset</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Histogram of missions per year -->
-        <div id="histogram_misions_per_year" class="chart">
-          <center>
-            <div class="info_text">Cantidad de Misiones por Año</div>
-          </center>
-          <div class="description_text" id="information">
-            <p>
-                En este histograma podemos visualizar cómo ha ido cambiando la cantidad de misiones totales a <br>
-                lo largo de los años. Observando el gráfico, podemos notar que la cantidad ha ido disminuyendo <br>
-                a lo largo del tiempo, alcanzando su valor mínimo en 2019. Además, se observa un aumento en el <br>
-                número de misiones de un año al siguiente únicamente en el año 2016.
-            </p>
-            </div>
-          <div id="hist_chart"></div>
-        </div>
-
-        <!-- Histogram of hours per year per country -->
-        <div id="histogram_hours_per_year" class="chart">
-          <center>
-            <div class="info_text">Horas de Misiones por año</div>
-          </center>
-          <div class="description_text" id="information">
-            <p>
-                En este gráfico de calor se puede visualizar la cantidad de horas de misiones realizadas por <br>
-                cada país en cada año de la década pasada. Se destaca que Estados Unidos y Rusia fueron los <br>
-                únicos países que llevaron a cabo misiones en todos los años de la década anterior.
-            </p>
-          </div>
-        <div id="heatmap_chart"></div>  
-        </div>
-
-        <!-- Facet bar graph of gender count per country -->
-        <div id="bar_gender_country" class="chart">
-          <center>
-            <div class="info_text">Genero por Nacionalidad</div>
-          </center>
-          <div class="description_text" id="information">
-            <p>
-                Este gráfico muestra el porcentaje de hombres y mujeres enviados al espacio por cada país, <br>
-                en relación con el total de astronautas enviados. Se puede observar que en la mayoría de los <br>
-                países el porcentaje de hombres es mayor que el de mujeres, siendo Estados Unidos, Rusia, China, <br>
-                Japón e Italia los únicos países que han enviado mujeres al espacio
-            </p>
-            </div>
-          <div id="facet_chart" class="chart_container"></div>
-        </div>
-
-        <!-- Line graph of occupation count per year -->
-        <div id="line_ocupacion_year" class="chart">
-          <center>
-            <div class="info_text">Cantidad de astronautas por ocupación por año</div>
-          </center>
-          <div class="description_text" id="information">
-            <p>
-                En el gráfico de líneas presentado abajo, podemos observar la cantidad total de astronautas <br>
-                enviados al espacio, distinguiéndolos por su ocupación. Es importante destacar el caso de <br>
-                Hazzaa Al Mansoori en el año 2019, quien se convirtió en el primer astronauta emiratí en <br>
-                embarcarse en una misión científica de los Emiratos Árabes Unidos a la Estación Espacial <br>
-                Internacional (ISS)
-            </p>
-          </div>
-          <div id="line_chart" class="chart_container"></div>
-        </div>
-
-        <!-- Tree map of astronauts per country per year -->
-        <div id="tree" class="chart">
-          <center>
-            <div class="info_text">Astronautas por país por año</div>
-          </center>
-          <div id="tree_chart"></div>
-        </div>
-      </div>
-    </main>
-
-    <footer class="hidden">
-      <div id="footer_contents">
-        <div id="footer_integrantes">
-          <h1>Integrantes</h1>
-          <p>Luca Mazzarello</p>
-          <p>Ignacio Pardo</p>
-        </div>
-        <div id="footer_chart_links">
-          <h1>Charts</h1>
-          <a class="footer_chart_link" href="/Users/ezequielkaplan/Documents/GitHub/Parcial/vd_transforms-main/00_barras/" target="_blank">Histograma de misiones por año</a>
-          <a class="footer_chart_link" href="dataviz_2/" target="_blank">Heatmap de horas de misiones por año por país</a>
-          <a class="footer_chart_link" href="dataviz_3/" target="_blank">Gráfico de barras facetado de cantidad de astronautas por país por género</a>
-          <a class="footer_chart_link" href="dataviz_4/" target="_blank">Gráfico de líneas de cantidad de astronautas por ocupación por año</a>
-          <a class="footer_chart_link" href="dataviz_5/" target="_blank">Gráfico de árbol de cantidad de astronautas por país por año</a>
-        </div>
-        <div id="footer_links">
-          <div id="footer_icons">
-            <a class="icon_ref" href="https://www.utdt.edu/">
-              <img class="icon" src="assets/utdt.svg" alt="UTDT" />
-            </a>
-            <a class="icon_ref" href="https://github.com/IgnacioPardo/vd_s1_tp2_mazzarello_pardo">
-              <img class="icon" src="assets/gh.svg" alt="GitHub" />
-            </a>
-          </div>
-          <!-- <a href="https://observablehq.com/">Observable</a> -->
-        </div>
-      </div>
-    </footer>
-    
-    <!-- import libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js"></script>
-    <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/htl@0.3.1/dist/htl.min.js"></script>
-    
-    <script src="tooltip.js"></script>
-    
-    <!-- plot dependencies -->
-    <script src="/Users/ezequielkaplan/Documents/GitHub/Parcial/vd_transforms-main/00_barras/script.js"></script>
-    <script src="dataviz_1/misions_per_year.js"></script>
-    <script src="dataviz_2/hsPerYear.js"></script>
-    <script src="dataviz_3/facet.js"></script>
-    <script src="dataviz_4/okupa.js"></script>
-    <script src="dataviz_5/tree.js"></script>
-    <script src="dataviz_6/hours_per_year.js"></script>
-    
-    <!-- main script -->
-    <script src="assets/script.js"></script>
+    <center><h1>Autos mal estacionados en CABA</h1>
+      <br>
+      <h2>texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto textotexto texto texto texto texto texto texto texto texto texto texto textotexto texto texto texto texto texto texto texto texto texto texto textotexto texto texto texto texto texto texto texto texto texto texto textotexto texto texto texto texto texto texto texto texto texto texto texto</h2>
+    </center>
   </body>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
 </html>
