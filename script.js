@@ -21,6 +21,6 @@ d3.dsv(';', '147_vehiculos_mal_estacionados.csv', d => {
       Plot.dot(chartData, {x: "rangohs", y: "frequencia", fill: "currentColor"}),
     ]
   });
-  d3.select('#chart').append(() => chart);
+  d3.select('#charths').append(() => chart);
 });
 
