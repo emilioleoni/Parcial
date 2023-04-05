@@ -8,4 +8,4 @@ def dia_de_la_semana(fecha):
 
 a=pd.read_csv("147_vehiculos_mal_estacionados.csv",';')
 a["dia"]=a['fecha_ingreso'].apply(dia_de_la_semana)
-a.to_csv("multas_con_dias.csv",';')
+a.to_csv("multas_con_dias.csv",';',index=False)
