@@ -1,5 +1,5 @@
 // Load the first CSV data
-Plotly.d3.csv('multas_por_hstotal.csv', function(err, data1) {
+Plotly.d3.csv('../CSVS/multas_por_hstotal.csv', function(err, data1) {
   if (err) throw err;
 
   // Extract the hora and cantidad columns from the first CSV data
@@ -12,7 +12,7 @@ Plotly.d3.csv('multas_por_hstotal.csv', function(err, data1) {
   });
 
   // Load the second CSV data
-  Plotly.d3.csv('multas_por_hs.csv', function(err, data2) {
+  Plotly.d3.csv('../CSVS/multas_por_hs.csv', function(err, data2) {
     if (err) throw err;
 
     // Extract the hora and cantidad columns from the second CSV data
@@ -57,6 +57,6 @@ Plotly.d3.csv('multas_por_hstotal.csv', function(err, data1) {
 
     var data = [trace1, trace2];
 
-    Plotly.newPlot('plot', data, layout);
+    Plotly.newPlot('chart_3', data, layout);
   });
 });

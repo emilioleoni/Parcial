@@ -1,5 +1,5 @@
-const mapaFetch = d3.json('barrios-caba.geojson')
-const dataFetch = d3.dsv(';', '147_vehiculos_mal_estacionados.csv', d3.autoType)
+const mapaFetch = d3.json('CSVS/barrios-caba.geojson')
+const dataFetch = d3.dsv(';', 'CSVS/147_vehiculos_mal_estacionados.csv', d3.autoType)
 
 Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   
@@ -36,5 +36,5 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   })
 
   /* Agregamos al DOM la visualización chartMap */
-  d3.select('#chart').append(() => chartMap)
+  d3.select('#chart_1').append(() => chartMap)
 })

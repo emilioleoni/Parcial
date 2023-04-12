@@ -7,7 +7,7 @@ def convertir_hora_a_entero(hora):
 
 rango_hs = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
 
-df=pd.read_csv(r"C:\Users\emili\OneDrive\2021 Di Tella\Tercer año\Visualizacion de datos\Parcial\Grafico por dias\multas_con_dias.csv",';')
+df=pd.read_csv("multas_con_dias.csv",';')
 dic={}
 # Aplicar la función personalizada a la columna hora_ingreso
 df['hora_ingreso'] = df['hora_ingreso'].apply(convertir_hora_a_entero)
@@ -20,5 +20,5 @@ for i in rango_hs:
 df_resultado = pd.DataFrame(dic.items(), columns=['hora', 'cantidad'])
 
 # Escribir el DataFrame en un archivo CSV
-df_resultado.to_csv(r'C:\Users\emili\OneDrive\2021 Di Tella\Tercer año\Visualizacion de datos\Parcial\Grafico por dias\multas_por_hs.csv', index=False, sep=',')
+df_resultado.to_csv(r'C:\Users\emili\OneDrive\2021 Di Tella\Tercer año\Visualizacion de datos\Parcial\Grafico por dias\CSVS\multas_por_hs.csv', index=False, sep=',')
 

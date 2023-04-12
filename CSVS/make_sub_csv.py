@@ -11,4 +11,4 @@ for i in dias_de_la_semana:
             dic[i]+=1
 df=pd.DataFrame.from_dict(dic, orient="index",columns=['cantidad'])
 df = df.rename_axis('dia').reset_index()
-df.to_csv("/Users/ezequielkaplan/Documents/GitHub/Parcial/Grafico por dias/cant_por_dia.csv",';', index=False)
+df.to_csv("/Users/ezequielkaplan/Documents/GitHub/Parcial/Grafico por dias/CSVS/cant_por_dia.csv",';', index=False)

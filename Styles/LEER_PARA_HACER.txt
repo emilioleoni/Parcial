@@ -1,0 +1,4 @@
+Carpeta styles: contiene 2 archivos css.
+styles.css - archivo donde podemos agregar los estilos personalizados a los elementos html.
+reset.css - archivo css que elimina los estilos predeterminados a todos los elementos html. 
+Sirve para que podamos empezar el diseño desde cero.
