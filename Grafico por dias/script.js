@@ -1,49 +1,52 @@
-// Cargar el archivo CSV con PapaParse
-Papa.parse("multas_con_dias.csv", {
-    download: true,
-    header: true,
-    complete: function(results) {
-      // Obtener un array de objetos con las denuncias
-      var denuncias = results.data;
+// Leer el archivo CSV con D3.js
+d3.csv("multas_con_dias.csv").then(function(denuncias) {
+
+
+    // Calcular la cantidad total de denuncias
+    var cantidadTotal = d3.sum(denuncias, function(d) { return 1; });
   
-      // Crear un objeto para contar las denuncias por día
-      var denunciasPorDia = {};
+    // Configurar las opciones del gráfico
+    var margin = {top: 20, right: 20, bottom: 30, left: 40};
+    var width = 960 - margin.left - margin.right;
+    var height = 500 - margin.top - margin.bottom;
   
-      // Contar las denuncias por día
-      denuncias.forEach(function(denuncia) {
-        var fecha = new Date(denuncia.fecha_ingreso);
-        var dia = fecha.toLocaleDateString();
-        if (!denunciasPorDia[dia]) {
-          denunciasPorDia[dia] = 0;
-        }
-        denunciasPorDia[dia]++;
-      });
+    var x = d3.scaleBand()
+      .range([0, width])
+      .padding(0.1)
+      .domain(["Denuncias"]);
   
-      // Convertir los datos en un array de objetos para Chart.js
-      var data = {
-        labels: Object.keys(denunciasPorDia),
-        datasets: [{
-          label: "Denuncias de Tránsito",
-          data: Object.values(denunciasPorDia),
-          backgroundColor: "rgba(54, 162, 235, 0.5)"
-        }]
-      };
+    var y = d3.scaleLinear()
+      .range([height, 0])
+      .domain([0, cantidadTotal]);
   
-      // Configurar las opciones del gráfico
-      var options = {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      };
+    var xAxis = d3.axisBottom(x);
   
-      // Crear el gráfico de barras con Chart.js
-      var chart = new Chart("chart", {
-        type: "bar",
-        data: data,
-        options: options
-      });
-    }
+    var yAxis = d3.axisLeft(y)
+      .ticks(10);
+  
+    var svg = d3.select("#chart")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  
+    svg.selectAll(".bar")
+      .data([cantidadTotal])
+      .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x("Denuncias"); })
+      .attr("width", x.bandwidth())
+      .attr("y", function(d) { return y(d); })
+      .attr("height", function(d) { return height - y(d); });
+  
+    svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+  
+    svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+  
   });
   
