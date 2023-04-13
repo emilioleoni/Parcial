@@ -12,17 +12,24 @@ async function crearGrafico() {
 
     const x = datos.map(d => d.dia);
     const y = datos.map(d => d.cantidad);
-    const colores = datos.map(d => d.dia);
+    const colores = datos.map(d => {
+        if (d.dia === 'Jueves') {
+            return 'rgba(255, 0, 0, 0.7)';  // asignar color rojo al jueves
+        } else {
+            return d.dia;
+        }
+    });
 
     const datosGrafico = [{
-        x: x,  // intercambiar x e y
-        y: y,  // intercambiar x e y
+        x: x,
+        y: y,
         type: 'bar',
         orientation: 'v',
         marker: {
             color: colores,
             colorscale: 'Viridis'
         }
+        
     }];
 
     const layout = {
@@ -35,11 +42,11 @@ async function crearGrafico() {
         },
         yaxis: {
             title: 'Día de la semana',
-            // autorange: 'reversed',
             showgrid: true,
             zeroline: false,
             showline: false
         }
+        
     };
 
     Plotly.newPlot('chart_2', datosGrafico, layout);
