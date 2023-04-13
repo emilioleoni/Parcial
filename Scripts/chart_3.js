@@ -30,13 +30,13 @@ Plotly.d3.csv('../CSVS/multas_por_hstotal.csv', function(err, data1) {
       y: cantidades1,
       mode: 'lines+markers', // Include markers along with lines
       type: 'scatter',
-      name: 'En la semana',
+      name: 'Resto de la semana',
       line: {color: 'blue'},
       marker: {size: 6, color: 'blue'} // Set marker size and color
     };
 
     var trace2 = {
-      x: horas2,
+      x: horas2-horas1, //Le resto la cantidad de horas de los jueves
       y: cantidades2,
       mode: 'lines+markers', // Include markers along with lines
       type: 'scatter',
@@ -46,7 +46,7 @@ Plotly.d3.csv('../CSVS/multas_por_hstotal.csv', function(err, data1) {
     };
 
     var layout = {
-      title: 'Denuncias dependiendo la hora del día',
+      title: 'La bronca de las 17hs',
       xaxis: {
         title: 'Hora',
         range: [0, 24],
