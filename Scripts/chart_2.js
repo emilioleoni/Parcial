@@ -1,6 +1,6 @@
 // Leer los datos del archivo CSV
 async function cargarDatos() {
-    const respuesta = await fetch('../CSVS/cant_por_dia.csv');
+    const respuesta = await fetch('CSVS/cant_por_dia.csv');
     const datos = await respuesta.text();
     return datos;
 }
@@ -34,14 +34,14 @@ async function crearGrafico() {
 
     const layout = {
         xaxis: {
-            title: 'Cantidad',
+            title: 'Dia de la semana',
             autorange: true,
             showgrid: true,
             zeroline: false,
             showline: false
         },
         yaxis: {
-            title: 'Día de la semana',
+            title: 'Cantidad de deenuncias',
             showgrid: true,
             zeroline: false,
             showline: false
