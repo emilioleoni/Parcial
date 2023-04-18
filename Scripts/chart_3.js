@@ -30,9 +30,9 @@ Plotly.d3.csv('CSVS/multas_por_hstotal.csv', function(err, data1) {
       y: cantidades1,
       mode: 'lines+markers', // Include markers along with lines
       type: 'scatter',
-      name: 'Resto de la semana',
-      line: {color: 'blue'},
-      marker: {size: 6, color: 'blue'} // Set marker size and color
+      name: 'Toda la semana',
+      line: {color: "orange"},
+      marker: {size: 6, color: 'orange'} // Set marker size and color
     };
 
     var trace2 = {
@@ -40,9 +40,9 @@ Plotly.d3.csv('CSVS/multas_por_hstotal.csv', function(err, data1) {
       y: cantidades2,
       mode: 'lines+markers', // Include markers along with lines
       type: 'scatter',
-      name: 'Los jueves el dia mas intenso',
-      line: {color: 'red'},
-      marker: {size: 6, color: 'red'} // Set marker size and color
+      name: 'Los jueves',
+      line: {color: 'maroon'},
+      marker: {size: 6, color: 'maroon'} // Set marker size and color
     };
 
     var layout = {
