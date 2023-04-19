@@ -11,7 +11,7 @@ body {
   font-weight: 300;
   margin: auto;
   padding: 0;
-  background-color:  #ffe9d6;
+  background-color:  #eeeeee;
   max-width: 900px;
 
 }
@@ -83,7 +83,7 @@ section {
     padding: 2rem;
   }
 svg{
-  background:  #ffe9d6 !important;
+  background:  #eeeeee !important;
   font-size: 12px;
 } 
 
