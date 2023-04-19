@@ -22,7 +22,8 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   /* Mapa Coroplético */
   let chartMap = Plot.plot({
     // https://github.com/observablehq/plot#projection-options
-    width: 600,
+    width: 350,
+    height: 350,
     projection: {
       type: 'mercator',
       domain: barrios, // Objeto GeoJson a encuadrar
