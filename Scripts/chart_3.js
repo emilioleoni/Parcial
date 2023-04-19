@@ -12,13 +12,16 @@ d3.csv('CSVS/multas_por_hs.csv').then(function(data2) {
       d.cantidad = +d.cantidad;
   });
     let chart=Plot.plot({
+      marginTop: 40,
+      marginBottom: 40,
       grid: true,
       width:1400,
       x: {
         label: "Hora del dia",
         domain: [0, 23],
         tickValues: d3.range(0, 24),
-        tickFormat: x => x + ":00"
+        tickFormat: x => x + ":00",
+        
       },
       y: {
         label: "Cantidad de multas",
