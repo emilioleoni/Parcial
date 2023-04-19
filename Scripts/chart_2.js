@@ -33,7 +33,7 @@ const chart = Plot.plot({
     },
   y:{
     fontSize: 10,
-    label: "↑ Cantidad de multas",
+    label: "↑ Cantidad de denuncias",
   },
   x: {
     transform: xScale, // Usar la escala de banda personalizada
