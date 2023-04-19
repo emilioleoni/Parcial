@@ -26,6 +26,10 @@ const colorScale = d3.scaleSequential()
 
 // Crear el gráfico de barras
 const chart = Plot.plot({
+    style: {
+        fontSize: "20",
+        fontFamily: "sans-serif",
+    },
   y:{
     fontSize: 10,
   },

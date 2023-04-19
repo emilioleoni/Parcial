@@ -24,6 +24,10 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
     // https://github.com/observablehq/plot#projection-options
     width: 350,
     height: 350,
+    style: {
+      fontSize: "20",
+      fontFamily: "sans-serif",
+    },
     projection: {
       type: 'mercator',
       domain: barrios, // Objeto GeoJson a encuadrar
@@ -48,6 +52,8 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
           text: (d) => d.properties.BARRIO,
           fill: "white",
           textAnchor: "center",
+          fontSize: "11",
+          fontFamily: "sans-serif",
           filter: (d) => d.properties.DENUNCIAS > 1200
         })
       )
