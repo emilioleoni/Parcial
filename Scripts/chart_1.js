@@ -4,16 +4,11 @@ const dataFetch = d3.dsv(';', 'CSVS/147_vehiculos_mal_estacionados.csv', d3.auto
 Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   
   /* Agrupamos reclamos x barrio */
-<<<<<<< HEAD
-  const estacionadosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
-  console.log('estacionadosPorBarrio', estacionadosPorBarrio)
+  const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
+  console.log('reclamosPorBarrio', reclamosPorBarrio)
   const colorScale = d3.scaleSequential()
   .domain([0, d3.max(data, d => d.cantidad)])
   .interpolator(d3.interpolateYlOrBr);
-=======
-  const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
-  console.log('reclamosPorBarrio', reclamosPorBarrio)
-  
   /* A cada feature del mapa le agregamos la prop DENUNCIAS */
   barrios.features.forEach(d => {
     let nombreBarrio = d.properties.BARRIO
@@ -24,7 +19,6 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   })
 
 
->>>>>>> 0a396bb3ad9a50d50b78b3677930e7dabfd1e0a8
   /* Mapa Coroplético */
   let chartMap = Plot.plot({
     // https://github.com/observablehq/plot#projection-options
@@ -44,7 +38,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
     marks: [
       Plot.geo(barrios, {
         fill: d => d.properties.DENUNCIAS,
-        stroke: 'gray',
+        stroke: "light gray",
         title: d => `${d.properties.BARRIO}\n${d.properties.DENUNCIAS} denuncias`,
       }),
       Plot.text(
