@@ -26,12 +26,14 @@ const colorScale = d3.scaleSequential()
 
 // Crear el gráfico de barras
 const chart = Plot.plot({
+    marginTop: 30,
     style: {
         fontSize: "20",
         fontFamily: "sans-serif",
     },
   y:{
     fontSize: 10,
+    label: "↑ Cantidad de multas",
   },
   x: {
     transform: xScale, // Usar la escala de banda personalizada
