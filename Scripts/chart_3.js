@@ -16,6 +16,7 @@ d3.csv('CSVS/multas_por_hstotal.csv').then(function(data1) {
     let chart = Plot.plot({
       marginTop: 50,
       marginBottom: 70,
+      
       height:600,
       grid: true,
       width: 1400,
@@ -24,15 +25,17 @@ d3.csv('CSVS/multas_por_hstotal.csv').then(function(data1) {
         fontFamily: "sans-serif",
       },
       x: {
-        label: "Hora del dia",
+        label: "Hora del día",
         domain: [0, 23],
         tickValues: d3.range(0, 24),
-        tickFormat: x => x 
+        tickFormat: x => x,
+        line: true,
+        
       },
       y: {
         label: "↑ Cantidad de multas",
         domain: [0, 60],
-        alaign: "center",
+        line:true,
       },
       marks: [
         Plot.line(data1, {x: "hora", y: "cantidad", stroke: "orange", strokeWidth: 5}),
