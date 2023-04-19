@@ -6,7 +6,9 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   /* Agrupamos reclamos x barrio */
   const estacionadosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
   console.log('estacionadosPorBarrio', estacionadosPorBarrio)
-  
+  const colorScale = d3.scaleSequential()
+  .domain([0, d3.max(data, d => d.cantidad)])
+  .interpolator(d3.interpolateYlOrBr);
   /* Mapa Coroplético */
   let chartMap = Plot.plot({
     // https://github.com/observablehq/plot#projection-options

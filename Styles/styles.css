@@ -9,8 +9,11 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-  margin: 0;
+  margin: auto;
   padding: 0;
+  background-color:  #ffe9d6;
+  max-width: 900px;
+
 }
 
 .container {
@@ -46,8 +49,18 @@ h3 {
 }
 
 #chart_1 {
-  margin-bottom: 20rem;
+  max-width: 500px;
+  margin-bottom: 100px;
 }
+#chart_2 {
+  max-width: 500px;
+  margin-bottom: 0px;
+}
+#chart_3 {
+  max-width: 1000px;
+  margin-bottom: 0px;
+}
+
 
 p {
   font-size: 1.2rem;
@@ -69,7 +82,11 @@ section {
     margin: 0 auto;
     padding: 2rem;
   }
-  
+svg{
+  background:  #ffe9d6 !important;
+  font-size: 12px;
+} 
+
 
 hr {
   border: 0;

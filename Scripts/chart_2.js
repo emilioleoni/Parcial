@@ -1,56 +1,58 @@
-// Leer los datos del archivo CSV
-async function cargarDatos() {
-    const respuesta = await fetch('CSVS/cant_por_dia.csv');
-    const datos = await respuesta.text();
-    return datos;
-}
+// Reemplazar el contenido de la variable "csvData" con el contenido de tu archivo CSV
+const csvData = `nro;dia;cantidad
+1;Lunes;75
+2;Martes;27
+3;Miercoles;144
+4;Jueves;168
+5;Viernes;57
+6;Sabado;22
+7;Domingo;32`;
 
-// Crear el gráfico de barras paradas con Plotly
-async function crearGrafico() {
-    const datosCSV = await cargarDatos();
-    const datos = Papa.parse(datosCSV, { header: true, delimiter: ';' }).data;
+// Crear un parser de CSV con el delimitador punto y coma
+const csvParser = d3.dsvFormat(";");
 
-    const x = datos.map(d => d.dia);
-    const y = datos.map(d => d.cantidad);
-    const colores = datos.map(d => {
-        if (d.dia === 'Jueves') {
-            return 'rgba(255, 0, 0, 0.7)';  // asignar color rojo al jueves
-        } else {
-            return d.dia;
-        }
-    });
+// Parsear los datos del CSV
+const data = csvParser.parse(csvData, d3.autoType);
 
-    const datosGrafico = [{
-        x: x,
-        y: y,
-        type: 'bar',
-        orientation: 'v',
-        marker: {
-            color: colores,
-            colorscale: 'Viridis'
-        }
-        
-    }];
+// Crear una escala de banda personalizada para el eje X
+const xScale = d3.scaleBand()
+  .domain(data.map(d => d.dia))
+  .padding(0.1);
 
-    const layout = {
-        xaxis: {
-            title: 'Dia de la semana',
-            autorange: true,
-            showgrid: true,
-            zeroline: false,
-            showline: false
-        },
-        yaxis: {
-            title: 'Cantidad de deenuncias',
-            showgrid: true,
-            zeroline: false,
-            showline: false
-        }
-        
-    };
+// Crear una escala de colores YlOrBr
+const colorScale = d3.scaleSequential()
+  .domain([0, d3.max(data, d => d.cantidad)])
+  .interpolator(d3.interpolateYlOrBr);
 
-    Plotly.newPlot('chart_2', datosGrafico, layout);
-}
+// Crear el gráfico de barras
+const chart = Plot.plot({
+  y:{
+    fontSize: 10,
+  },
+  x: {
+    transform: xScale, // Usar la escala de banda personalizada
+    axis: null, // Eliminar el eje X predeterminado
+  },
+  marks: [
+    Plot.barY(data, {
+      x: "dia",
+      y: "cantidad",
+      fill: (d) => colorScale(d.cantidad), // Usar la escala de colores YlOrBr
+      title: (d) => `Cantidad: ${d.cantidad}`,
+    }),
+    // Agregar etiquetas de texto debajo de las barras
+    Plot.text(data, {
+      x: "dia",
+      y: -5,
+      text: "dia",
+      fill: "black",
+      textAnchor: "middle",
+      font: "12px sans-serif",
+      fontSize: 15,
+    }),
+  ],
 
-// Llamar a la función para crear el gráfico
-crearGrafico();
+});
+
+// Agregar el gráfico al elemento con id "chart"
+document.getElementById("chart_2").appendChild(chart);
