@@ -20,6 +20,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   /* Mapa Coroplético */
   let chartMap = Plot.plot({
     // https://github.com/observablehq/plot#projection-options
+    width: 600,
     projection: {
       type: 'mercator',
       domain: barrios, // Objeto GeoJson a encuadrar
@@ -42,8 +43,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
         barrios.features,
         Plot.centroid({
           text: (d) => d.properties.BARRIO,
-          fill: "currentColor",
-          color: "white",
+          fill: "white",
           textAnchor: "center",
           filter: (d) => d.properties.DENUNCIAS > 1200
         })
