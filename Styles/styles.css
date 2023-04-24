@@ -8,11 +8,11 @@
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  margin: auto;
+  margin-right: auto;
   padding: 0;
   background-color:  #eeeeee;
   max-width: 900px;
-  background: linear-gradient(to right, #dddddd 0%, #dddddd 17%, #eeeeee 17%, #eeeeee 83%, #dddddd 83%, #dddddd 100%);
+  background: #ffffff;
 }
 
 .container {
@@ -88,7 +88,7 @@ section {
     padding: 2rem;
   }
 svg{
-  background:  #eeeeee !important;
+  background:  #ffff !important;
   font-size: 12px;
 } 
 
