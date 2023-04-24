@@ -39,6 +39,12 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
       scheme: 'oranges',
       label: 'Cantidad de denuncias',
       legend: true,
+      style: {
+        position: "relative", // Agrega posición relativa al legend
+        right: "280px", // Ajusta la posición desde la derecha
+      },
+      
+      
     },
     marks: [
       Plot.geo(barrios, {
