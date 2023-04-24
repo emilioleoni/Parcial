@@ -16,7 +16,6 @@ d3.csv('CSVS/multas_por_hstotal.csv').then(function(data1) {
     let chart = Plot.plot({
       marginTop: 50,
       marginBottom: 70,
-      
       height:600,
       grid: true,
       width: 1400,

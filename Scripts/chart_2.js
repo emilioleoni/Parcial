@@ -26,7 +26,7 @@ const colorScale = d3.scaleSequential()
 
 // Crear el gráfico de barras
 const chart = Plot.plot({
-    marginBottom: 10,
+    marginBottom: 12,
     marginTop: 10,
     style: {
         fontSize: "22",
@@ -37,19 +37,7 @@ const chart = Plot.plot({
     fontSize: 10,
     label: "↑ Cantidad de denuncias",
   },
-  color: {
-    // Quantize continuo (cant. denuncias) -> discreto (cant. colores)
-    type: 'quantize', 
-    scheme: 'oranges',
-    label: 'Cantidad de denuncias',
-    legend: true,
-    ticks: 5, // Establecer el número de marcas en la leyenda
-    tickFormat: (d) => {
-      // Calcular los valores reales de las marcas
-      const value = d * d3.max(data, d => d.cantidad);
-      return value.toFixed(0); // Redondear y convertir a cadena
-    },
-  },
+  
   
   x: {
     transform: xScale, // Usar la escala de banda personalizada
@@ -67,8 +55,16 @@ const chart = Plot.plot({
       y: (d) => d.cantidad + 5,
       text: (d) => d.cantidad,
       textAnchor: "middle",
-      font: "12px Bold lato",
-        fontSize: 20,
+      fontFamily: "Lato",
+      fontSize: 20,
+    }),
+    Plot.text (["168"], {
+      x: data.find(d => d.dia === "Jueves"),
+      y: 173,
+      textAnchor: "middle",
+      fontFamily: "Lato",
+      fontWeight: "bold",
+      fontSize: 20,
     }),
     // Agregar etiquetas de texto debajo de las barras
     Plot.text(data, {
