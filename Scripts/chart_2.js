@@ -43,7 +43,14 @@ const chart = Plot.plot({
     scheme: 'oranges',
     label: 'Cantidad de denuncias',
     legend: true,
+    ticks: 5, // Establecer el número de marcas en la leyenda
+    tickFormat: (d) => {
+      // Calcular los valores reales de las marcas
+      const value = d * d3.max(data, d => d.cantidad);
+      return value.toFixed(0); // Redondear y convertir a cadena
+    },
   },
+  
   x: {
     transform: xScale, // Usar la escala de banda personalizada
     axis: null, // Eliminar el eje X predeterminado
@@ -60,7 +67,7 @@ const chart = Plot.plot({
       y: (d) => d.cantidad + 5,
       text: (d) => d.cantidad,
       textAnchor: "middle",
-      font: "sans-serif",
+      font: "12px Bold lato",
         fontSize: 20,
     }),
     // Agregar etiquetas de texto debajo de las barras
@@ -70,8 +77,8 @@ const chart = Plot.plot({
       text: "dia",
       fill: "black",
       textAnchor: "middle",
-      font: "12px sans-serif",
-      fontSize: 18,
+      font: "12px lato",
+      fontSize: 20,
     }),
   ],
   
