@@ -26,7 +26,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
     height: 350,
     style: {
       fontSize: "20",
-      fontFamily: "Lato",
+      fontFamily: "Lato, sans-serif",
     },
     projection: {
       type: 'mercator',
@@ -59,7 +59,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
           fill: "white",
           textAnchor: "center",
           fontSize: "11",
-          fontFamily: "sans-serif",
+          fontFamily: "Lato, sans-serif",
           filter: (d) => d.properties.DENUNCIAS > 1200
         })
       )
