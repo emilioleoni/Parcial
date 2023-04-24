@@ -21,8 +21,8 @@ d3.csv('CSVS/multas_por_hstotal.csv').then(function(data1) {
       grid: true,
       width: 1400,
       style: {
-        fontSize: "20",
-        fontFamily: "sans-serif",
+        fontSize: "21",
+        fontFamily: "Lato",
       },
       x: {
         label: "Hora del día",
@@ -54,6 +54,7 @@ d3.csv('CSVS/multas_por_hstotal.csv').then(function(data1) {
           y: data2.find(d => d.hora === 12).cantidad + 3,
           fontWeight: "bold",
           fontSize: 20,
+          fontFamily: "Lato",
           fill: "maroon",
         })
       ]

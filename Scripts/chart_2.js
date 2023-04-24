@@ -29,8 +29,8 @@ const chart = Plot.plot({
     marginBottom: 10,
     marginTop: 10,
     style: {
-        fontSize: "20",
-        fontFamily: "sans-serif",
+        fontSize: "22",
+        fontFamily: "Lato",
     },
   y:{
     axis:null,
@@ -60,8 +60,8 @@ const chart = Plot.plot({
       y: (d) => d.cantidad + 5,
       text: (d) => d.cantidad,
       textAnchor: "middle",
-      font: "12px Bold sans-serif",
-        fontSize: 15,
+      font: "sans-serif",
+        fontSize: 20,
     }),
     // Agregar etiquetas de texto debajo de las barras
     Plot.text(data, {
@@ -71,7 +71,7 @@ const chart = Plot.plot({
       fill: "black",
       textAnchor: "middle",
       font: "12px sans-serif",
-      fontSize: 15,
+      fontSize: 18,
     }),
   ],
   
