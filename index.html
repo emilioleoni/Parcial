@@ -12,55 +12,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
   </head>
   <body>
-    <section>
-        <center>
-        <h1>Palermo los jueves al mediodía: ¿Un caos de autos mal estacionados?</h1>
-        <br>
-        <h2>What is Lorem Ipsum?</h2>
-        <br>
-        </center>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in
-            the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus PageMaker 
-            including versions of Lorem Ipsum.
-        </p>
+    <div class="container">
+      <header>
+        <img src="Styles/cronica.png" alt="Logo de La Cronica" />
+      </header>
+      <section>
+        <!-- Graficos -->
+        <div class="charts">
           <h3>Denuncia de vehiculos CABA</h3>
-        <center>
-        <div class="chart" id="chart_1"></div>
-        </center>
-        <small>Contrary to popular belief, Lorem Ipsum is not simply random text.</small>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in
-            the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus PageMaker 
-            including versions of Lorem Ipsum.
-        </p>
-        <h3>Cantidad de denuncias por dia en Palermo</h3>
-        <center>
-        <div  class="chart" id="chart_2"></div>
-        </center>
-        <small>Contrary to popular belief, Lorem Ipsum is not simply random text.</small>
+          <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem recusandae, aspernatur, cupiditate perspiciatis voluptas praesentium rerum officia quam magni harum laborum eos est illo ad reiciendis ullam culpa omnis. Voluptas?</h2>
+          <div class="chart" id="chart_1"></div>
+          <small>Contrary to popular belief, Lorem Ipsum is not simply random text.</small>
+          
+          <h3>Cantidad de denuncias por dia en Palermo</h3>
+          <div class="chart" id="chart_2"></div>
+          <small>Contrary to popular belief, Lorem Ipsum is not simply random text.</small>
+          
+          <h3>El almuerzo de los agua fiestas</h3>
+          <div class="chart" id="chart_3"></div>
+          <small>Contrary to popular belief, Lorem Ipsum is not simply random text.</small>
+        </div>
         
-        <p>
-            If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't 
-            anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators 
-            on the Internet tend to repeat predefined chunks as necessary, making this the first 
-            true generator on the Internet. It uses a dictionary of over 200 Latin words, combined 
-            with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
-        </p>
-        <h3>El almuerzo de los agua fiestas</h3>
-        <center>
-        <div  class="chart" id="chart_3"></div>
-        </center>
+        <!-- Imagen -->
+        <div class="ad-container">
+          <img src="Styles/publicidad.png" alt="Publicidad" />
+        </div>
+        
         <small>Contrary to popular belief, Lorem Ipsum is not simply random text.</small>
         <p>
             If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't 
@@ -79,6 +56,41 @@
             true generator on the Internet. It uses a dictionary of over 200 Latin words, combined 
             with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
         </p>
+        <p>
+          If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't 
+          anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators 
+          on the Internet tend to repeat predefined chunks as necessary, making this the first 
+          true generator on the Internet. It uses a dictionary of over 200 Latin words, combined 
+          with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
+        </p>
+      </section>
+      
+
+    
+    <style>
+      /* Estilos CSS */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      .charts {
+        width: 70%;
+        float: left;
+      }
+      
+      .ad-container {
+        width: 30%;
+        float: right;
+      }
+      
+      .ad-container img {
+        width: 100%;
+      }
+    </style>
+  </body>
     </section>
     <footer>Fuente de datos: <a href = "https://github.com/visualizacion-de-datos-utdt/vd_linea147/blob/main/147_vehiculos_mal_estacionados.csv">Pulse aqui para acceder a los datos</a> 
     <br>
