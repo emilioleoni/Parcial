@@ -48,11 +48,27 @@ fetch('CSVS/cant_por_dia.csv')
     Plot.text(data, {
       x: "dia",
       y: (d) => d.cantidad + 5,
+      text: (d) => {
+        if (d.cantidad === 229) {
+          return d.cantidad;
+        } else {
+          return null;
+        }
+      },
+      fontFamily: "Lato, sans-serif",
+      fontSize: 20,
+      fontWeight:  "bold",
+      textAnchor: "middle",
+    }),
+    Plot.text(data, {
+      x: "dia",
+      y: (d) => d.cantidad + 5,
       text: (d) => d.cantidad,
       textAnchor: "middle",
       fontFamily: "Lato, sans-serif",
       fontSize: 20,
     }),
+    
     // Agregar etiquetas de texto debajo de las barras
     Plot.text(data, {
       x: "dia",
