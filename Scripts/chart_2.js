@@ -26,51 +26,63 @@ fetch('CSVS/cant_por_dia.csv')
             fontSize: "22",
             fontFamily: "Lato, sans-serif",
           },
-      y:{
-        axis:null,
-        fontSize: 10,
-        label: "↑ Cantidad de denuncias",
+     
+  y:{
+    axis:null,
+    fontSize: 10,
+    label: "↑ Cantidad de denuncias",
+  },
+  
+  
+  x: {
+    transform: xScale, // Usar la escala de banda personalizada
+    axis: null, // Eliminar el eje X predeterminado
+  },
+  marks: [
+    Plot.barY(data, {
+      x: "dia",
+      y: "cantidad",
+      fill: (d) => colorScale(d.cantidad), // Usar la escala de colores YlOrBr
+      title: (d) => `Cantidad: ${d.cantidad}`,
+    }),
+    Plot.text(data, {
+      x: "dia",
+      y: (d) => d.cantidad + 5,
+      text: (d) => {
+        if (d.dia === "Miercoles") {
+          return d.cantidad;
+        } else {
+          return null;
+        }
       },
+      fontFamily: "Lato, sans-serif",
+      fontSize: 20,
+      fontWeight:  "bold",
+      textAnchor: "middle",
+    }),
+    Plot.text(data, {
+      x: "dia",
+      y: (d) => d.cantidad + 5,
+      text: (d) => d.cantidad,
+      textAnchor: "middle",
+      fontFamily: "Lato, sans-serif",
+      fontSize: 20,
+    }),
+    
+    // Agregar etiquetas de texto debajo de las barras
+    Plot.text(data, {
+      x: "dia",
+      y: -8,
+      text: "dia",
+      fill: "black",
+      textAnchor: "middle",
+      font: "Lato , sans-serif",
+      fontSize: 18,
+    }),
+  ],
+  
 
 
-      x: {
-        transform: xScale, // Usar la escala de banda personalizada
-        axis: null, // Eliminar el eje X predeterminado
-      },
-      marks: [
-        Plot.barY(data, {
-          x: "dia",
-          y: "cantidad",
-          fill: (d) => colorScale(d.cantidad), // Usar la escala de colores YlOrBr
-          title: (d) => `Cantidad: ${d.cantidad}`,
-        }),
-        Plot.text(data, {
-          x: "dia",
-          y: (d) => d.cantidad + 5,
-          text: (d) => d.cantidad,
-          textAnchor: "middle",
-          fontFamily: "Lato, sans-serif",
-          fontSize: 20,
-        }),
-        Plot.text (["168"], {
-          x: data.find(d => d.dia === "Jueves"),
-          y: 173,
-          textAnchor: "middle",
-          fontFamily: "Lato, sans-serif",
-          fontWeight: "bold",
-          fontSize: 20,
-        }),
-        // Agregar etiquetas de texto debajo de las barras
-        Plot.text(data, {
-          x: "dia",
-          y: -5,
-          text: "dia",
-          fill: "black",
-          textAnchor: "middle",
-          font: "Lato , sans-serif",
-          fontSize: 20,
-        }),
-      ],
     });
 
     // Agregar el gráfico al elemento con id "chart"
