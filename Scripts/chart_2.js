@@ -58,9 +58,9 @@ const chart = Plot.plot({
       fontFamily: "Lato, sans-serif",
       fontSize: 20,
     }),
-    Plot.text (["168"], {
-      x: data.find(d => d.dia === "Jueves"),
-      y: 173,
+    Plot.text (["229"], {
+      x: data.find(d => d.dia === "Miercoles"),
+      y: 234,
       textAnchor: "middle",
       fontFamily: "Lato, sans-serif",
       fontWeight: "bold",
