@@ -13,6 +13,7 @@ d3.csv('CSVS/multas_por_hstotal.csv').then(function(data1) {
       d.cantidad = +d.cantidad;
     });
 
+
     let chart = Plot.plot({
       marginTop: 50,
       marginBottom: 70,
@@ -54,7 +55,7 @@ d3.csv('CSVS/multas_por_hstotal.csv').then(function(data1) {
           fontSize: 20,
           fontFamily: "Lato, sans-serif",
           fill: "maroon",
-        })
+        }),
       ]
     });
 

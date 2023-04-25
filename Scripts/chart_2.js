@@ -28,9 +28,9 @@ fetch('CSVS/cant_por_dia.csv')
           },
      
   y:{
-    axis:null,
     fontSize: 10,
     label: "↑ Cantidad de denuncias",
+    axis:null,
   },
   
   
