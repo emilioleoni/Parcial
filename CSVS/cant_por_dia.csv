@@ -1,8 +1,8 @@
-dia;cantidad
-Lunes;75
-Martes;27
-Miercoles;144
-Jueves;168
-Viernes;57
-Sabado;22
-Domingo;32
+nro;dia;cantidad
+1;Lunes;153
+2;Martes;189
+3;Miercoles;229
+4;Jueves;199
+5;Viernes;202
+6;Sabado;152
+7;Domingo;138
