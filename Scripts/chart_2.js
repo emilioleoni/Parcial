@@ -1,12 +1,12 @@
 // Reemplazar el contenido de la variable "csvData" con el contenido de tu archivo CSV
 const csvData = `nro;dia;cantidad
-1;Lunes;75
-2;Martes;27
-3;Miercoles;144
-4;Jueves;168
-5;Viernes;57
-6;Sabado;22
-7;Domingo;32`;
+1;Lunes;1291
+2;Martes;1358
+3;Miercoles;1579
+4;Jueves;1693
+5;Viernes;1729
+6;Sabado;1462
+7;Domingo;1163`;
 
 // Crear un parser de CSV con el delimitador punto y coma
 const csvParser = d3.dsvFormat(";");
