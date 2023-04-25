@@ -49,7 +49,7 @@ fetch('CSVS/cant_por_dia.csv')
       x: "dia",
       y: (d) => d.cantidad + 5,
       text: (d) => {
-        if (d.cantidad === 229) {
+        if (d.dia === "Miercoles") {
           return d.cantidad;
         } else {
           return null;
