@@ -26,23 +26,29 @@ h1 {
   font-family: 'Lato', sans-serif;
   font-size: 2.8rem;
   font-weight: 700;
-  text-align: center;
+  text-align: left;
   margin: 2rem 0;
   color: #333;
 }
-
+#intro{
+  margin-top: 0px !important;
+  
+}
+#subtitle{
+  margin-bottom: 0px !important;
+}
 h2 {
   font-family: 'Lato', sans-serif;
   font-size: 2rem;
   font-weight: 400;
   text-align: left;
-  margin: 1rem 0;
-  color: #555;
+  color: #333;
+
 }
 
 h3 {
   font-family: 'Lato', sans-serif;
-  margin-top: 100px;
+  margin-top: 80px !important;
   font-size: 1.8rem;
   font-weight: 700;
   margin: 1.5rem 0;
@@ -59,16 +65,18 @@ h5 {
 
 #chart_1 {
   max-width: 500px;
-  margin-bottom: 30px;
+  margin-bottom: 5%;
   margin-top: 30px;
+  margin-right: auto;
 }
 #chart_2 {
   max-width: 500px;
-  margin-bottom: 0px;
+  margin-bottom: -5% !important;
+  margin-right: auto;
 }
 #chart_3 {
   max-width: 800px;
-  margin-bottom: 0px;
+  margin-bottom: -5%!important;
 }
 
 
@@ -151,3 +159,6 @@ footer {
 
 }
 
+header{
+  text-align: left;
+}
