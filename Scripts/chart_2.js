@@ -52,7 +52,14 @@ fetch('CSVS/cant_por_dia.csv')
           fontFamily: "Lato, sans-serif",
           fontSize: 20,
         }),
-
+        Plot.text (["168"], {
+          x: data.find(d => d.dia === "Jueves"),
+          y: 173,
+          textAnchor: "middle",
+          fontFamily: "Lato, sans-serif",
+          fontWeight: "bold",
+          fontSize: 20,
+        }),
         // Agregar etiquetas de texto debajo de las barras
         Plot.text(data, {
           x: "dia",

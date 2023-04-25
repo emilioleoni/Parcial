@@ -32,24 +32,24 @@ d3.csv('CSVS/multas_por_hstotal.csv').then(function(data1) {
       },
       y: {
         label: "↑ Promedio de denuncias",
-        domain: [0, 25],
+        domain: [0, 30],
         line:true,
       },
       marks: [
         Plot.line(data1, {x: "hora", y: "cantidad", stroke: "#F4A460", strokeWidth: 5}),
-        Plot.dot(data1,{x: 17, y: 50/7, fill: "#F4A460", r: 6}),
+        Plot.dot(data1,{x: 14, y: 127/7, fill: "#F4A460", r: 6}),
         Plot.line(data2, {x: "hora", y: "cantidad", stroke: "maroon",strokeWidth: 5}),
-        Plot.dot(data2, {x: 12, y: 20, fill: "maroon", r: 6}),
-        Plot.text(["17:00"], {
-          x: 17,
-          y: data1.find(d => d.hora === 17).cantidad + 1,
+        Plot.dot(data2, {x: 14, y: 25, fill: "maroon", r: 6}),
+        Plot.text(["14:00"], {
+          x: 14,
+          y: data1.find(d => d.hora === 14).cantidad + 1.5,
           fontWeight: "bold",
           fontSize: 20,
           fill: "#F4A460",
         }),
-        Plot.text(["12:00"], {
-          x: 12,
-          y: data2.find(d => d.hora === 12).cantidad + 1,
+        Plot.text(["14:00"], {
+          x: 14,
+          y: data2.find(d => d.hora === 14).cantidad + 1.5,
           fontWeight: "bold",
           fontSize: 20,
           fontFamily: "Lato, sans-serif",
