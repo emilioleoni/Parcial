@@ -32,7 +32,7 @@ d3.csv('CSVS/multas_por_hstotal.csv').then(function(data1) {
         line: true,
       },
       y: {
-        label: "↑ Promedio de denuncias",
+        label: "↑ Cantidad de denuncias",
         domain: [0, 30],
         line:true,
       },

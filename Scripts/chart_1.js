@@ -41,7 +41,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
       legend: true,
       style: {
         position: "relative", // Agrega posición relativa al legend
-        right: "150px", // Ajusta la posición desde la derecha
+        right: "300px", // Ajusta la posición desde la derecha
       },
       
       
