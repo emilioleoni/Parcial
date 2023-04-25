@@ -22,7 +22,7 @@ const xScale = d3.scaleBand()
 // Crear una escala de colores YlOrBr
 const colorScale = d3.scaleSequential()
   .domain([0, d3.max(data, d => d.cantidad)])
-  .interpolator(d3.interpolateYlOrBr);
+  .interpolator(d3.interpolateOranges);
 
 // Crear el gráfico de barras
 const chart = Plot.plot({
