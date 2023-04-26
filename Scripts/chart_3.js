@@ -37,14 +37,14 @@ d3.csv('CSVS/multas_por_hstotal.csv').then(function(data1) {
         line:true,
       },
       marks: [
-        Plot.line(data1, {x: "hora", y: "cantidad", stroke: "#F4A460", strokeWidth: 5}),
-        Plot.dot(data1,{x: 14, y: 127/7, fill: "#F4A460", r: 6}),
+        Plot.line(data1, {x: "hora", y: "cantidad", stroke: "orange", strokeWidth: 5}),
+        Plot.dot(data1,{x: 14, y: 127/7, fill: "orange", r: 6}),
         Plot.line(data2, {x: "hora", y: "cantidad", stroke: "maroon",strokeWidth: 5}),
         Plot.dot(data2, {x: 14, y: 25, fill: "maroon", r: 6}),
         Plot.text(["14:00"], {
           x: 14,
           y: data1.find(d => d.hora === 14).cantidad + 1.5,
-          fontWeight: "bold",
+          fontWeight: "orange",
           fontSize: 20,
           fill: "#F4A460",
         }),
